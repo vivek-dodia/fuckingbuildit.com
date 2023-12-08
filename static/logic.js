@@ -21,6 +21,6 @@ document.getElementById('newIdea').addEventListener('click', function() {
     })
     .catch((error) => {
         console.error('Error:', error);
-        document.getElementById('ideaBox').innerText = 'Failed to generate ideas. Please try again.';
+        document.getElementById('ideaBox').innerText = 'Failed to generate ideas. Please try again. :((';
     });
 });

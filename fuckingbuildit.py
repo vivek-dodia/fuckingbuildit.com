@@ -5,12 +5,13 @@ import requests
 import openai
 from dotenv import load_dotenv
 import os
+import re
 #import geoip2.database
 
 load_dotenv()  # This loads the environment variables from .env
 
 app = Flask(__name__)
-limiter = Limiter(key_func=get_remote_address, default_limits=["120 per day", "5 per hour"])
+limiter = Limiter(key_func=get_remote_address, default_limits=["100 per day", "20 per hour"])
 limiter.init_app(app)
 api_key = os.getenv('OPENAI_API_KEY')
 GEOIP_DB_PATH = 'path/to/GeoLite2-Country.mmdb'  # Update with the path to your GeoLite2 database
@@ -32,7 +33,7 @@ GEOIP_DB_PATH = 'path/to/GeoLite2-Country.mmdb'  # Update with the path to your 
 #            abort(403)  # Forbidden access
 
 def call_gpt_api(keywords):
-    prompt = f"Generate three Python project ideas based on the following technologies: {keywords}. Categorize the ideas into beginner, advanced, and expert levels."
+    prompt = f"Generate three technical project ideas based on the following technologies: {keywords}. Categorize the ideas into beginner, advanced, and expert levels."
     
     headers = {
         'Authorization': f'Bearer {api_key}',
@@ -60,7 +61,17 @@ def index():
 @limiter.limit("5 per hour")  # Apply rate limiting to this endpoint
 def generate_idea():
     print("generate_idea route called")
+    # Define a regular expression pattern for validation
+    pattern = re.compile("^[a-zA-Z0-9, ]+$")
     user_input = request.json['keywords']
+    print("Received input:", user_input)
+
+    
+    if not pattern.match(user_input):
+        return jsonify({'error': 'Invalid input. Only alphanumeric characters and spaces are allowed.'}), 400
+     # Check the length of the input
+    if len(user_input) > 100:  # Example limit
+        return jsonify({'error': 'Input too long. Maximum length is 20 characters.'}), 400
     generated_idea = call_gpt_api(user_input)
     return jsonify({'idea': generated_idea})
 
