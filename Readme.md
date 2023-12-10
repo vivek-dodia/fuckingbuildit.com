@@ -19,7 +19,7 @@ once in the same directory, just run the .py and it should bring up the flask se
 and 
 
 ### debug if you are getting error once the flask is up but not returning any queries, comment out or enable these print statements
-
+```
 response = requests.post('https://api.openai.com/v1/chat/completions', json=data, headers=headers)
 print("Response Status Code:", response.status_code)
     print("Response Content:", response.text)
@@ -27,7 +27,7 @@ print("Response Status Code:", response.status_code)
         return response.json()['choices'][0]['message']['content'].strip()
     else:
         return "Error: Unable to generate idea"
-
+```
 ### changing the gpt model to run the api against
 
 https://platform.openai.com/docs/models
