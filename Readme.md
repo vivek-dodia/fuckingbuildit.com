@@ -69,12 +69,13 @@ ENV FLASK_ENV=production
 
 ### Run whatshouldifuckingbuild.py when the container launches
 CMD ["python", "whatshouldifuckingbuild.py"]
+```
 
 save the file and run the following to build the image and save it locally
-
+```
 docker build -t whatshouldifuckingbuild .
-
+```
 run it locally via 
-
+```
 docker run -p 5000:5000 whatshouldifuckingbuild
 ```
