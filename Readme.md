@@ -12,7 +12,7 @@ install the requirements.txt
 
 ## editing the py
 
-in case you are just self hosting, make sure to comment out all the flask limiter commands or if you plan on publically host it, make sure you have correct rate limiting place
+in case you are just self hosting, make sure to comment out all the flask limiter commands or if you plan on publically host it, make sure you have correct rate limiting in place
 ```
 limiter = Limiter(key_func=get_remote_address, default_limits=["100 per day", "20 per hour"])
 ```
