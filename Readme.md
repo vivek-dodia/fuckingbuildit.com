@@ -15,7 +15,8 @@ limiter = Limiter(key_func=get_remote_address, default_limits=["100 per day", "2
 
 ## running directly by calling the .py locally
 
-once in the same directory, just run the .py and it should bring up the flask server and you should be able to access it via localhost:5000 / localip:5000 / 127.0.0.1:5000 
+once in the same directory, just run the .py and it should bring up the flask server and you should be able to access it via 
+```localhost:5000 / localip:5000 / 127.0.0.1:5000```
 
 and 
 
