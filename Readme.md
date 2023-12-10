@@ -8,6 +8,8 @@ clone the repo
 
 create .env similar to the example one and insert your openapi key
 
+install the requirements.txt
+
 ## editing the py
 
 in case you are just self hosting, make sure to comment out all the flask limiter commands or if you plan on publically host it, make sure you have correct rate limiting place
