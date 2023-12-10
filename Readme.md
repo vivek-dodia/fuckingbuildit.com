@@ -32,20 +32,22 @@ print("Response Status Code:", response.status_code)
 
 https://platform.openai.com/docs/models
 
+```
 data = {
         "model": "gpt-3.5-turbo-1106",
         "messages": [{"role": "system", "content": prompt}]
     }
-
+```
 ### editing the input validation for queries, edit the following
-
+```
 pattern = re.compile("^[a-zA-Z0-9, ]+$")
-
+```
 
 ## creating the dockerfile / image to run it locally or any serverless platform
 
 in the same directly as the cloned repo, create a dockerfile and put the following in it
 
+```
 ### Use an official Python runtime as a base image
 FROM python:3.9-slim
 
@@ -74,3 +76,4 @@ docker build -t whatshouldifuckingbuild .
 run it locally via 
 
 docker run -p 5000:5000 whatshouldifuckingbuild
+```
