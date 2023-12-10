@@ -7,8 +7,9 @@ create .env similar to the example one and insert your openapi key
 ## editing the py
 
 in case you are just self hosting, make sure to comment out all the flask limiter commands or if you plan on publically host it, make sure you have correct rate limiting place
-
-*limiter = Limiter(key_func=get_remote_address, default_limits=["100 per day", "20 per hour"])*
+```
+limiter = Limiter(key_func=get_remote_address, default_limits=["100 per day", "20 per hour"])
+```
 
 ## running directly by calling the .py locally or creating the dockerfile / image to run it locally or any serverless platform
 
