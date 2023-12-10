@@ -2,7 +2,6 @@
 
 ![ideas](ideas.png)
 
-
 ## to use it
 
 clone the repo
