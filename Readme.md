@@ -1,24 +1,24 @@
-# to use it
+## to use it
 
 clone the repo
 
 create .env similar to the example one and insert your openapi key
 
-# editing the py
+## editing the py
 
 in case you are just self hosting, make sure to comment out all the flask limiter commands or if you plan on publically host it, make sure you have correct rate limiting place
 
 *limiter = Limiter(key_func=get_remote_address, default_limits=["100 per day", "20 per hour"])*
 
-# running directly by calling the .py locally or creating the dockerfile / image to run it locally or ony serverless platform
+## running directly by calling the .py locally or creating the dockerfile / image to run it locally or ony serverless platform
 
-# running directly by calling the .py locally
+## running directly by calling the .py locally
 
 once in the same directory, just run the .py and it should bring up the flask server and you should be able to access it via localhost:5000 / localip:5000 / 127.0.0.1:5000 
 
 and 
 
-## debug if you are getting error once the flask is up but not returning any queries, comment out or enable these print statements
+### debug if you are getting error once the flask is up but not returning any queries, comment out or enable these print statements
 
 *response = requests.post('https://api.openai.com/v1/chat/completions', json=data, headers=headers)*
 *print("Response Status Code:", response.status_code)*
@@ -28,7 +28,7 @@ and
    *else:*
         *return "Error: Unable to generate idea"*
 
-## changing the gpt model to run the api against
+### changing the gpt model to run the api against
 
 https://platform.openai.com/docs/models
 
@@ -37,12 +37,12 @@ https://platform.openai.com/docs/models
         *"messages": [{"role": "system", "content": prompt}]*
     *}*
 
-## editing the input validation for queries, edit the following
+### editing the input validation for queries, edit the following
 
 *pattern = re.compile("^[a-zA-Z0-9, ]+$")*
 
 
-# creating the dockerfile / image to run it locally or ony serverless platform
+## creating the dockerfile / image to run it locally or ony serverless platform
 
 in the same directly as the cloned repo, create a dockerfile and put the following in it
 
