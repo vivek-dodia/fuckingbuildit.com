@@ -86,3 +86,4 @@ run it locally via
 ```
 docker run -p 5000:5000 whatshouldifuckingbuild
 ```
+or go ham and host it publically via any serverless platform like fargate, koyeb or ec2 to run it on it if u want more work then buy a domain, map the cname to domain to make dns work and you good be good.
