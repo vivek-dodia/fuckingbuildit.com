@@ -41,7 +41,7 @@ def call_gpt_api(keywords):
     }
 
     data = {
-        "model": "gpt-3.5-turbo-1106",  # Ensure this is the correct model you have access to
+        "model": "gpt-4-0125-preview",  # Updated to GPT-4 Preview model
         "messages": [{"role": "system", "content": prompt}]
     }
 
